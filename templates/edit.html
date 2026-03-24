@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Редактировать контакт</title>
+    <title>Edit Contact</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,7 +38,7 @@
     </style>
 </head>
 <body>
-    <h1>Редактировать контакт</h1>
+    <h1>Edit Contact</h1>
     
     <form action="/edit/{{ contact.id }}" method="post">
         <div class="form-group">
@@ -50,9 +50,9 @@
         <div class="form-group">
             <textarea name="note" rows="3">{{ contact.note }}</textarea>
         </div>
-        <button type="submit">Сохранить</button>
+        <button type="submit">Save</button>
     </form>
     
-    <a href="/" class="back-link">← Назад к списку</a>
+    <a href="/" class="back-link">← Back to list</a>
 </body>
 </html>

@@ -16,7 +16,7 @@ def get_db_connection():
             conn = psycopg2.connect(db_url)
             return conn
         except psycopg2.OperationalError as e:
-            print(f"База данных пока недоступна ({e}). Пробую снова через 2 секунды...")
+            print(f"DataBase is unavailable ({e}). Try again over 2 sec...")
             time.sleep(2)
 
 
@@ -45,7 +45,7 @@ def add_contact():
     conn.commit()
     cur.close()
     conn.close()
-    flash('Контакт успешно добавлен!')
+    flash('Contact was successfully added!')
     return redirect(url_for('index'))
 
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
@@ -63,7 +63,7 @@ def edit_contact(id):
             (full_name, phone_number, note, id)
         )
         conn.commit()
-        flash('Контакт успешно обновлен!')
+        flash('Contact was successfully updated!')
         return redirect(url_for('index'))
     
     cur.execute('SELECT * FROM contacts WHERE id=%s', (id,))
@@ -80,7 +80,7 @@ def delete_contact(id):
     conn.commit()
     cur.close()
     conn.close()
-    flash('Контакт удален!')
+    flash('Contact was deleted!')
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
